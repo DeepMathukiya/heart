@@ -2,5 +2,5 @@ Flask
 Gunicorn
 joblib
 numpy
-Scikit-learn
+Scikit-learn==1.2.2
 
