@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        color: #1a1f36;
+        box-sizing: border-box;
+        word-wrap: break-word;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, sans-serif;
+    }
+
+    body {
+        background-color: rgb(247, 248, 249);
+    }
+.container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        
+}
+   form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 40%;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        border-radius: 10px;
+        box-shadow: #1a1f36;
+    }
+
+    input[type="submit"] {
+        background-color: rgb(84, 105, 212);
+        box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+            rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+            rgba(0, 0, 0, 0.12) 0px 1px 1px 0px,
+            rgb(84, 105, 212) 0px 0px 0px 1px,
+            rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+            rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+            rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+        color: #fff;
+        font-weight: 600;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="container">
+    <form action="/predict" method="POST">
+        <div class="mb-3">
+            <label for="Age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="Age" name="Age" placeholder="Enter Your Age" required>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="Gender" value="1" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+                Male
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="Gender" id="flexRadioDefault1" value="0">
+            <label class="form-check-label" for="flexRadioDefault1">
+                Female
+            </label>
+        </div>
+        <div class="mb-3">
+            <label for="Cp" class="form-label">Disabled select menu</label>
+            <select id="Cp" class="form-select" name="Cp">
+                <option value="1" selected>Typical Angina</option>
+                <option value="2">Atypical Angina</option>
+                <option value="3">Non-Anginal Pain</option>
+                <option value="4">Asymptomatic</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="TestBp" class="form-label">Blood Pressure in mm Hg:</label>
+            <input type="number" step="0.01" class="form-control" id="TestBp" name="TestBp" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Chol" class="form-label">cholestoral in mg/dl</label>
+            <input type="number" step="0.01" class="form-control" id="Chol" name="Chol" required>
+        </div>
+        <div class="mb-3">
+            <!-- <input class="form-check-input" type="checkbox" value="1" name = "Fbs" id="Fbs"> -->
+            <label class="form-label" for="Fbs">Fasting blood sugar higher then 120 mg/dl</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Fbs" value="1" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Yes
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Fbs" id="flexRadioDefault1" value="0">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    No
+                </label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="Restecg" class="form-label">Disabled select menu</label>
+            <select id="Restecg" class="form-select" name="Restecg">
+                <option value="0" selected>normal</option>
+                <option value="1">having ST-T wave abnormality</option>
+                <option value="2">howing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="Thalach" class="form-label">Maximum heart rate achieved</label>
+            <input type="number"  class="form-control" id="Thalach" name="Thalach" required>
+        </div>
+        <div class="mb-3">
+            <!-- <input class="form-check-input" type="checkbox" value="1" id="Exang" name="Exang"> -->
+            <label class="form-check-label" for="">
+                Do you do Exercise??
+            </label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Exang" value="1" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Yes
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Exang" id="flexRadioDefault1" value="0">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    No
+                </label>
+            </div>
+
+        </div>
+        <div class="mb-3">
+            <label for="Oldpeak" class="form-label">ST depression:</label>
+            <input type="number" step="0.01" class="form-control" id="Oldpeak" name="Oldpeak" required>
+        </div>
+        <div class="mb-3">
+            <label for="Slope" class="form-label">Disabled select menu</label>
+            <select id="Slope" class="form-select" name="Slope">
+                <option value="1">upsloping</option>
+                <option value="2" selected>flat</option>
+                <option value="3">downsloping</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="Ca" class="form-label">number of major vessels (0-3) colored by flourosopy</label>
+            <select id="Ca" class="form-select" name="Ca">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>        </div>
+        <div class="mb-3">
+            <label for="Thal" class="form-label">Disabled select menu</label>
+            <select id="Thal" class="form-select" name="Thal">
+                <option value="3">normal</option>
+                <option value="7">fixed defect</option>
+                <option value="6">reversable defect</option>
+            </select>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h3>
+        {{output}}
+    </h3>
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</html>
